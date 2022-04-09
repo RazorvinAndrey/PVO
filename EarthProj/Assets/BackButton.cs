@@ -15,4 +15,16 @@ public class BackButton : MonoBehaviour
             flag = true;
         }
     }
+
+    private void OnMouseDown()
+    {
+        if (flag)
+        {
+            flag = false;
+        }
+        else
+        {
+            flag = true;
+        }
+    }
 }

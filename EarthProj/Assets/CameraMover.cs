@@ -72,7 +72,7 @@ public class CameraMover : MonoBehaviour
         yield return new WaitForEndOfFrame();
         currentSectorGo = Instantiate(zoneGO[zone], pos + normal * sectorOffsetMultipiller, Quaternion.LookRotation(-normal, earth.up), earth);
     }
-    private void Update()
+    private async void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)||backbutton.flag)
         {

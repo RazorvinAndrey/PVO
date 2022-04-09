@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Sector : MonoBehaviour
 {
@@ -25,25 +26,35 @@ public class Sector : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (EarthController.currentSector != this)
+        if (!EventSystem.current.IsPointerOverGameObject())
         {
-            OnSectorClick?.Invoke(this.gameObject, zone);
-            EarthController.SetOpacity(_mRenderer.material, 0f);
+            if (EarthController.currentSector != this)
+            {
+                OnSectorClick?.Invoke(this.gameObject, zone);
+                EarthController.SetOpacity(_mRenderer.material, 0f);
+            }
         }
     }
     void OnMouseEnter()
     {
-        if (EarthController.currentSector != this)
+
+        if (!EventSystem.current.IsPointerOverGameObject())
         {
-            OnSectorEnter?.Invoke(this.gameObject, zone);
-            EarthController.SetOpacity(_mRenderer.material, 0.5f);
+            if (EarthController.currentSector != this)
+            {
+                OnSectorEnter?.Invoke(this.gameObject, zone);
+                EarthController.SetOpacity(_mRenderer.material, 0.5f);
+            }
         }
 
     }
     void OnMouseExit()
     {
-        OnSectorEnter?.Invoke(this.gameObject, zone);
-        EarthController.SetOpacity(_mRenderer.material, 0f);
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            OnSectorEnter?.Invoke(this.gameObject, zone);
+            EarthController.SetOpacity(_mRenderer.material, 0f);
+        }
 
     }
 }

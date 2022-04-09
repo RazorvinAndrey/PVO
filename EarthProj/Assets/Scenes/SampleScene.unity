@@ -9941,7 +9941,7 @@ MonoBehaviour:
   - 1.3
   - 1
   - 1
-  sqrScaleFactor: 10
+  sqrScaleFactor: 10.2
   backbutton: {fileID: 519171927}
   zoneGO:
   - {fileID: 3462428195014236583, guid: 513a3223ad108b6d7876cb5a4d6954a6, type: 3}
