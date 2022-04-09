@@ -15,6 +15,7 @@ public class CameraMover : MonoBehaviour
     [SerializeField] private float[] minorSqrOffsetMultipiller;
     [SerializeField] private float[] zoneSqrCameraMulti;
     [SerializeField] private float sqrScaleFactor;
+    [SerializeField] private BackButton backbutton;
 
 
     [SerializeField] private GameObject[] zoneGO;
@@ -73,8 +74,9 @@ public class CameraMover : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape)||backbutton.flag)
         {
+            backbutton.flag = false;
             for (int i = currentSquareGo.Length - 1; i >= 0; i--)
             {
                 if (currentSquareGo[i] != null)
