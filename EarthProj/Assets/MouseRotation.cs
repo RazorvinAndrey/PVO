@@ -29,8 +29,8 @@ public class MouseRotation : MonoBehaviour
         if (allowRotation && Input.GetMouseButton(1))
         {
             var before = transform.localEulerAngles;
-            var xRotation = new Vector3(0, -Input.GetAxis("Mouse X"), 0) * Time.deltaTime * rotationSpeed;
-            var yRotation = new Vector3(0, -Input.GetAxis("Mouse Y"), 0) * Time.deltaTime * rotationSpeed;
+            var xRotation = new Vector3(0, -Input.GetAxis("Mouse X"), 0) * Time.deltaTime * rotationSpeed*15;
+            var yRotation = new Vector3(0, -Input.GetAxis("Mouse Y"), 0) * Time.deltaTime * rotationSpeed*15;
             // lookAtObject.Translate(yRotation);
             // var lp = lookAtObject.position;
             // if(lp.y>30) lookAtObject.position= new Vector3(lp.x,30,lp.z);

@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 0
+  tangent: {fileID: 0}
 --- !u!65 &3031189776716372983
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -207,6 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 0
+  tangent: {fileID: 0}
 --- !u!65 &3937489822585836833
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -317,6 +319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 0
+  tangent: {fileID: 0}
 --- !u!65 &8918400178493589576
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -427,6 +430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 0
+  tangent: {fileID: 0}
 --- !u!65 &4703911920064418000
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -522,7 +526,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 89d86fe54696f6c69bbe05a8d31c4919, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.8}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.078431375}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -629,6 +633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 0
+  tangent: {fileID: 0}
 --- !u!65 &8942882390577078702
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -739,6 +744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 0
+  tangent: {fileID: 0}
 --- !u!65 &1117751899659671164
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -849,6 +855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 0
+  tangent: {fileID: 0}
 --- !u!65 &3080257787328830370
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -959,6 +966,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 0
+  tangent: {fileID: 0}
 --- !u!65 &4860961342313590520
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1069,6 +1077,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 0
+  tangent: {fileID: 0}
 --- !u!65 &3339638505881687985
 BoxCollider:
   m_ObjectHideFlags: 0

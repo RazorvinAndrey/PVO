@@ -1,0 +1,9 @@
+newmtl signal
+Kd 0.2352941 0.6762157 0.7264151
+d 0.3529412
+
+newmtl ProBuilderDefault
+map_Kd GridBox_Default.png
+Kd 1 1 1
+d 1
+

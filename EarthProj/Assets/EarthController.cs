@@ -13,8 +13,7 @@ public class EarthController : MonoBehaviour
     void Start()
     {
         currentSquare = new GameObject[3];
-        SetOpacity(sphere.materials[2], 0.0f);
-        
+        SetOpacity(sphere.materials[2], 1f);
 
     }
 
