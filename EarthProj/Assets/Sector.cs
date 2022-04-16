@@ -9,6 +9,7 @@ public class Sector : MonoBehaviour
     public static event SectorEvent OnSectorEnter;
     public static event SectorEvent OnSectorExit;
     public static event SectorEvent OnSectorClick;
+    
 
     public int zone;
     private MeshRenderer _mRenderer;
@@ -46,6 +47,7 @@ public class Sector : MonoBehaviour
                 EarthController.SetOpacity(_mRenderer.material, 0.5f);
             }
         }
+        
 
     }
     void OnMouseExit()

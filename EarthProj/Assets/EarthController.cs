@@ -13,7 +13,7 @@ public class EarthController : MonoBehaviour
     void Start()
     {
         currentSquare = new GameObject[3];
-        SetOpacity(sphere.materials[2], 1f);
+        SetOpacity(sphere.materials[2], 0f);
 
     }
 
@@ -46,28 +46,34 @@ public class EarthController : MonoBehaviour
             SetOpacity(sphere.materials[2], 0.0f);
             return;
         }
-        switch (id)
-        {
-            case 0:
-                sphere.materials[2].mainTexture = zonesTextures[0];
-                sphere.materials[2].color = zonesColors[0];
-                break;
-            case 1:
-                sphere.materials[2].mainTexture = zonesTextures[1];
-                sphere.materials[2].color = zonesColors[1];
-                break;
-            case 2:
-            case 3:
+        
+            switch (id)
+            {
+                case 0:
+                    sphere.materials[2].mainTexture = zonesTextures[0];
+                    sphere.materials[2].color = zonesColors[0];
+                    break;
+                case 1:
+                    sphere.materials[2].mainTexture = zonesTextures[1];
+                    sphere.materials[2].color = zonesColors[1];
+                    break;
+                case 2:
+                case 3:
+                case 4:
+                case 5:
                 sphere.materials[2].mainTexture = zonesTextures[2];
-                sphere.materials[2].color = zonesColors[2];
-                break;
-            case 4:
-            case 5:
+                    sphere.materials[2].color = zonesColors[2];
+                    break;
+                case 6:
+                case 7:
+                case 8:
+                case 9:
                 sphere.materials[2].mainTexture = zonesTextures[3];
-                sphere.materials[2].color = zonesColors[3];
-                break;
-            default:
-                break;
+                    sphere.materials[2].color = zonesColors[3];
+                    break;
+                default:
+                    break;
+            
         }
 
     }
@@ -83,6 +89,8 @@ public class EarthController : MonoBehaviour
     }
     public void OnSectorClick(GameObject sector, int zone)
     {
+        SelectZone(-1);
+        
         currentSector = sector.GetComponent<Sector>();
     }
     public void OnSquareClick(GameObject square, int size)
