@@ -41,13 +41,34 @@ public class EarthController : MonoBehaviour
 
     public void SelectZone(int id)
     {
-        if (id < 0 || id > 3)
+        if (id < 0 || id > 5)
         {
             SetOpacity(sphere.materials[2], 0.0f);
             return;
         }
-        sphere.materials[2].mainTexture = zonesTextures[id];
-        sphere.materials[2].color = zonesColors[id];
+        switch (id)
+        {
+            case 0:
+                sphere.materials[2].mainTexture = zonesTextures[0];
+                sphere.materials[2].color = zonesColors[0];
+                break;
+            case 1:
+                sphere.materials[2].mainTexture = zonesTextures[1];
+                sphere.materials[2].color = zonesColors[1];
+                break;
+            case 2:
+            case 3:
+                sphere.materials[2].mainTexture = zonesTextures[2];
+                sphere.materials[2].color = zonesColors[2];
+                break;
+            case 4:
+            case 5:
+                sphere.materials[2].mainTexture = zonesTextures[3];
+                sphere.materials[2].color = zonesColors[3];
+                break;
+            default:
+                break;
+        }
 
     }
 

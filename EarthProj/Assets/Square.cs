@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 public class Square : MonoBehaviour
 {
     public delegate void SquareEvent(GameObject sector, int zone);
@@ -29,29 +29,38 @@ public class Square : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (EarthController.currentSquare?[size] != this)
+        if (!EventSystem.current.IsPointerOverGameObject())
         {
-            OnSquareClick?.Invoke(this.gameObject, size);
-            SetOpacity(0f);
+            if (EarthController.currentSquare?[size] != this)
+            {
+                OnSquareClick?.Invoke(this.gameObject, size);
+                SetOpacity(0f);
+            }
         }
         // Debug.Log($"click {this.gameObject}");
     }
     void OnMouseEnter()
     {
-
-        if (EarthController.currentSquare?[size] != this.gameObject)
+        if (!EventSystem.current.IsPointerOverGameObject())
         {
-            OnSquareEnter?.Invoke(this.gameObject, size);
-            SetOpacity(0.5f);
-        }
 
-        Debug.Log($"enter {this.gameObject.name } {EarthController.currentSquare?[size] } {size}");
+            if (EarthController.currentSquare?[size] != this.gameObject)
+            {
+                OnSquareEnter?.Invoke(this.gameObject, size);
+                SetOpacity(0.5f);
+            }
+
+            Debug.Log($"enter {this.gameObject.name } {EarthController.currentSquare?[size] } {size}");
+        }
     }
     void OnMouseExit()
     {
-        OnSquareEnter?.Invoke(this.gameObject, size);
-        SetOpacity(0f);
-        // Debug.Log($"exit {this.gameObject}");
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            OnSquareEnter?.Invoke(this.gameObject, size);
+            SetOpacity(0f);
+            // Debug.Log($"exit {this.gameObject}");
+        }
     }
 
     private void SetOpacity(float value)
