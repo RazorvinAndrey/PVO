@@ -54,7 +54,7 @@ public class Sector : MonoBehaviour
     {
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            OnSectorEnter?.Invoke(this.gameObject, zone);
+            OnSectorExit?.Invoke(this.gameObject, zone);
             EarthController.SetOpacity(_mRenderer.material, 0f);
         }
 

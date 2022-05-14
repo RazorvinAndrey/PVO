@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 2bc199bb20bd9db1fad80b4a3ee3ff29, type: 3}
-  m_Color: {r: 1, g: 0.78646934, b: 0.78039217, a: 0.078431375}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -104,7 +104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1232914901172886460, guid: 50aea7d53e8d4b0478d2bfb4cbedbeaa, type: 3}
       propertyPath: m_Name
-      value: Square (9)
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2634017104538212299, guid: 50aea7d53e8d4b0478d2bfb4cbedbeaa, type: 3}
       propertyPath: m_SortingOrder
@@ -182,7 +182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1232914901172886460, guid: 50aea7d53e8d4b0478d2bfb4cbedbeaa, type: 3}
       propertyPath: m_Name
-      value: Square (3)
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2634017104538212299, guid: 50aea7d53e8d4b0478d2bfb4cbedbeaa, type: 3}
       propertyPath: m_SortingOrder
@@ -260,7 +260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1232914901172886460, guid: 50aea7d53e8d4b0478d2bfb4cbedbeaa, type: 3}
       propertyPath: m_Name
-      value: Square (7)
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2634017104538212299, guid: 50aea7d53e8d4b0478d2bfb4cbedbeaa, type: 3}
       propertyPath: m_SortingOrder
@@ -338,7 +338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1232914901172886460, guid: 50aea7d53e8d4b0478d2bfb4cbedbeaa, type: 3}
       propertyPath: m_Name
-      value: Square (1)
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2634017104538212299, guid: 50aea7d53e8d4b0478d2bfb4cbedbeaa, type: 3}
       propertyPath: m_SortingOrder
@@ -416,7 +416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1232914901172886460, guid: 50aea7d53e8d4b0478d2bfb4cbedbeaa, type: 3}
       propertyPath: m_Name
-      value: Square (2)
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2634017104538212299, guid: 50aea7d53e8d4b0478d2bfb4cbedbeaa, type: 3}
       propertyPath: m_SortingOrder
@@ -494,7 +494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1232914901172886460, guid: 50aea7d53e8d4b0478d2bfb4cbedbeaa, type: 3}
       propertyPath: m_Name
-      value: Square (8)
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2634017104538212299, guid: 50aea7d53e8d4b0478d2bfb4cbedbeaa, type: 3}
       propertyPath: m_SortingOrder
@@ -572,7 +572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1232914901172886460, guid: 50aea7d53e8d4b0478d2bfb4cbedbeaa, type: 3}
       propertyPath: m_Name
-      value: Square (4)
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2634017104538212299, guid: 50aea7d53e8d4b0478d2bfb4cbedbeaa, type: 3}
       propertyPath: m_SortingOrder
@@ -650,7 +650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1232914901172886460, guid: 50aea7d53e8d4b0478d2bfb4cbedbeaa, type: 3}
       propertyPath: m_Name
-      value: Square (6)
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2634017104538212299, guid: 50aea7d53e8d4b0478d2bfb4cbedbeaa, type: 3}
       propertyPath: m_SortingOrder
@@ -728,7 +728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1232914901172886460, guid: 50aea7d53e8d4b0478d2bfb4cbedbeaa, type: 3}
       propertyPath: m_Name
-      value: Square (5)
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2634017104538212299, guid: 50aea7d53e8d4b0478d2bfb4cbedbeaa, type: 3}
       propertyPath: m_SortingOrder

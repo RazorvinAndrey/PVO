@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2990163910900069385}
   - component: {fileID: 2990163910900069384}
+  - component: {fileID: 5333372532809898533}
   m_Layer: 0
   m_Name: "\u043C \u043A\u0432\u0430\u0434\u0440\u0430\u0442 1"
   m_TagString: Untagged
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 2bc199bb20bd9db1fad80b4a3ee3ff29, type: 3}
-  m_Color: {r: 0.6556604, g: 1, b: 0.6965433, a: 0.050980393}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -83,6 +84,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5333372532809898533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2990163910900069399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a4b0f3e434d85c4dada6798eb542315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4969960592373574418
 PrefabInstance:
   m_ObjectHideFlags: 0

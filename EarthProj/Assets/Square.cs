@@ -4,15 +4,17 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class Square : MonoBehaviour
 {
-    public delegate void SquareEvent(GameObject sector, int zone);
+    public delegate void SquareEvent(Square sector, int zone);
     public static event SquareEvent OnSquareEnter;
     public static event SquareEvent OnSquareExit;
-    public static event SquareEvent OnSquareClick;  
+    public static event SquareEvent OnSquareClick;
 
+    public bool textFlag = true;
     public int size;
     public Transform tangent;
     private SpriteRenderer _sRenderer;
     private MeshRenderer _mRenderer;
+
 
     private CameraMover _cameraMover;
     void Start()
@@ -31,12 +33,13 @@ public class Square : MonoBehaviour
     {
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            if (EarthController.currentSquare?[size] != this)
+            //if (EarthController.currentSquare?[size] != this)
             {
-                OnSquareClick?.Invoke(this.gameObject, size);
+                OnSquareClick?.Invoke(this, size);
                 SetOpacity(0f);
             }
         }
+        
         // Debug.Log($"click {this.gameObject}");
     }
     void OnMouseEnter()
@@ -44,9 +47,9 @@ public class Square : MonoBehaviour
         if (!EventSystem.current.IsPointerOverGameObject())
         {
 
-            if (EarthController.currentSquare?[size] != this.gameObject)
+           //if (EarthController.currentSquare?[size] != this.gameObject)
             {
-                OnSquareEnter?.Invoke(this.gameObject, size);
+                OnSquareEnter?.Invoke(this, size);
                 SetOpacity(0.5f);
             }
 
@@ -57,7 +60,7 @@ public class Square : MonoBehaviour
     {
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            OnSquareEnter?.Invoke(this.gameObject, size);
+            OnSquareExit?.Invoke(this, size);
             SetOpacity(0f);
             // Debug.Log($"exit {this.gameObject}");
         }

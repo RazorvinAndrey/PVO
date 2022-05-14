@@ -30,7 +30,7 @@ public class EarthController : MonoBehaviour
         Sector.OnSectorClick -= OnSectorClick;
         Sector.OnSectorEnter -= OnSectorEnter;
         Sector.OnSectorExit -= OnSectorExit;
-        Square.OnSquareClick += OnSquareClick;
+        Square.OnSquareClick -= OnSquareClick;
 
     }
     public static void SetOpacity(Material mat, float opacity)
@@ -41,7 +41,7 @@ public class EarthController : MonoBehaviour
 
     public void SelectZone(int id)
     {
-        if (id < 0 || id > 5)
+        if (id < 0 || id > 10)
         {
             SetOpacity(sphere.materials[2], 0.0f);
             return;
@@ -71,6 +71,10 @@ public class EarthController : MonoBehaviour
                 sphere.materials[2].mainTexture = zonesTextures[3];
                     sphere.materials[2].color = zonesColors[3];
                     break;
+                case 10:
+                sphere.materials[2].mainTexture = zonesTextures[2];
+                sphere.materials[2].color = zonesColors[2];
+                break;
                 default:
                     break;
             
@@ -93,9 +97,10 @@ public class EarthController : MonoBehaviour
         
         currentSector = sector.GetComponent<Sector>();
     }
-    public void OnSquareClick(GameObject square, int size)
+    public void OnSquareClick(Square square, int size)
     {
-        currentSquare[size] = square;
+        if (size >= 5) size = size - 5;
+        currentSquare[size] = square.gameObject;
         // currentSquare[size].GetComponent<Collider>().enabled = false;
         // Debug.Log($"recorded {square} as sqr {size}");
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class MouseRotation : MonoBehaviour
 {
     public Transform lookAtObject;
-    public float rotationSpeed = 8;  //This will determine max rotation speed, you can adjust in the inspector
+    public float rotationSpeed = 1;  //This will determine max rotation speed, you can adjust in the inspector
     public static bool allowRotation;
     public Camera cam;  //Drag the camera object here
     private Vector3 prevMousePos = Vector3.zero;

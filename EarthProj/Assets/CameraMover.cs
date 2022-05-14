@@ -20,6 +20,8 @@ public class CameraMover : MonoBehaviour
     [SerializeField] private float sqrScaleFactor;
     [SerializeField] private BackButton backbutton;
     [SerializeField] public Text coordText;
+    public GameObject lastClickedSquare;
+    private bool inFlag = true;
 
 
     [SerializeField] private GameObject[] zoneGO;
@@ -86,11 +88,14 @@ public class CameraMover : MonoBehaviour
             {
                 if (currentSquareGo[i] != null)
                 {
-
+                   
                     DestroySqr(i);
 
                     if (i != 0)
                     {
+                       
+                     
+                       
                         // var offset = camSquareMultipiller / (1 + minorSqrCamMultipiller * (i - 1));
                         path.m_Waypoints[1].position = currentSquareGo[i - 1].transform.position + currentNormalVector * (GetSqrCamOffset(i - 1) + GetSqrPlaceOffset(i - 1));
                     }
@@ -107,6 +112,7 @@ public class CameraMover : MonoBehaviour
             {
                 
                 EarthController.currentSector = null;
+                coordText.text = "";
                 Destroy(currentSectorGo);
                 camFollowObj.m_Position = 0;
                 camFollowObj.m_Speed = 0;
@@ -116,36 +122,56 @@ public class CameraMover : MonoBehaviour
         }
     }
 
-    private void OnSquareClick(GameObject square, int size)
+    private void OnSquareClick(Square square, int size)
     {
+        var sizeReal = size;
+        if (size >= 5) size = size - 5;
         var tr = square.transform;
         var pos = tr.position;
         var normalVector = (pos - earth.position).normalized;
-        DestroyMinorSqrs(size);
-        EarthController.currentSquare[size] = square;
-        camFollowObj.m_Speed = camSpeed;
+        /*if (inFlag)
+        {
+            inFlag = false;
+        }
+        else
+        {
+            lastClickedSquare.gameObject.SetActive(true);
+        }
+        lastClickedSquare = square.gameObject;
+        */
 
+        DestroyMinorSqrs(size);
+        EarthController.currentSquare[size] = square.gameObject;
+        camFollowObj.m_Speed = camSpeed;
         MouseRotation.allowRotation = false;
+
+        //if (square.textFlag)
+        {
+            coordText.text += "." + square.name;
+            square.textFlag = false;
+        }
+
         if (EarthController.currentSector.zone == 0 && size == 0)
         {
             pos = tr.parent.position;
             normalVector = (pos - earth.position).normalized;
 
             // path.m_Waypoints[1].position = pos + normalVector * (GetSqrCamOffset(size) + GetSqrPlaceOffset(size));
-
+           
             StartCoroutine(SpawnZoneGSqr0(tr.parent, normalVector));
         }
         else
         {
-
-            StartCoroutine(SpawnSquareGO(tr, normalVector, size));
+            square.gameObject.SetActive(false);
+            StartCoroutine(SpawnSquareGO(tr, normalVector, size,sizeReal));
         }
-        path.m_Waypoints[1].position = pos + normalVector * (GetSqrCamOffset(size) + GetSqrPlaceOffset(size));
+    
+        path.m_Waypoints[1].position = pos + normalVector * (GetSqrCamOffset(size) + GetSqrPlaceOffset(size) );
     }
 
-    IEnumerator SpawnSquareGO(Transform tr, Vector3 normal, int size)
+    IEnumerator SpawnSquareGO(Transform tr, Vector3 normal, int size,int sizeReal)
     {
-
+        if (size >= 5) size = size - 5;
         yield return new WaitForEndOfFrame();
         Vector3 uport;
         if(size==0){
@@ -154,19 +180,20 @@ public class CameraMover : MonoBehaviour
             uport = currentSquareGo[size-1].transform.up;
             normal= -currentSquareGo[size-1].transform.forward;
         }
-        GameObject go = Instantiate(sqaresGO[size], tr.position + normal*GetSqrPlaceOffset(size), Quaternion.LookRotation(-normal, uport), earth) as GameObject;
+        GameObject go = Instantiate(sqaresGO[sizeReal], tr.position + normal*GetSqrPlaceOffset(size), Quaternion.LookRotation(-normal, uport), earth) as GameObject;
         go.transform.localScale = tr.lossyScale / sqrScaleFactor;
         currentSquareGo[size] = go;
         if (size == 0)
         {
             EarthController.SetOpacity(sphere.materials[3], 0.0f);
         }
-        else if(size == 1) {
+        else if(size == 1) 
+        {
             currentSectorGo.SetActive(false);
         } 
         else if (size > 1)
         {
-            currentSquareGo[size - 2].SetActive(false);
+            currentSquareGo[size - 2].gameObject.SetActive(false);
         }
     }
     IEnumerator SpawnZoneGSqr0(Transform tr, Vector3 normal)
@@ -183,36 +210,46 @@ public class CameraMover : MonoBehaviour
 
     private void DestroyMinorSqrs(int size)
     {
-
+        if (size >= 5) size -= 5;
         for (int i = currentSquareGo.Length - 1; i >= size; i--)
         {
             // if (currentSquareGo[i] != null) Destroy(currentSquareGo[i]);
             DestroySqr(i);
         }
     }
+
+ 
+
     private float GetSqrCamOffset(int size)
     {
+        if (size >= 5) size = size - 5;
         float mult = 1;
         if (EarthController.currentSector != null)
         {
             int zone = EarthController.currentSector.zone ;
 
             mult = zoneSqrCameraMulti[zone];
+            
         }
-    
+        
         return mult * camSquareMultipiller / (1 + minorSqrCamMultipiller * size);
     }
     private float GetSqrPlaceOffset(int size)
     {
+        if (size >= 5) size = size - 5;
         // return squareOffsetMultipiller / (1 + minorSqrOffsetMultipiller * size);
         return minorSqrOffsetMultipiller[size];
     }
 
-    private void DestroySqr(int size)
+    private void DestroySqr(int size )
     {
+        if (size >= 5) size = size - 5;
         var i = size;
         if (currentSquareGo[i] != null)
         {
+            //if (countSymbol(currentSquareGo[i].name, '.')-1 == 2)
+           
+            coordText.text = coordText.text.Remove(coordText.text.LastIndexOf("."));
 
             Destroy(currentSquareGo[i]);
             if (size == 0)
@@ -230,7 +267,7 @@ public class CameraMover : MonoBehaviour
         }
 
         // if (EarthController.currentSquare[i] != null)
-        // {
+        // 
 
         // if (EarthController.currentSquare[i].TryGetComponent<Collider>(out var collider))
         // {
@@ -238,7 +275,25 @@ public class CameraMover : MonoBehaviour
         // }
 
         EarthController.currentSquare[i] = null;
+        //coordText.text.Remove(coordText.text.Length - currentSquareGo[i].name.Length + 1);
         // }
 
     }
+
+    private int countSymbol(string str,char ch)
+    {
+        int k = 0;
+        for(int i = 0; i < str.Length; i++)
+        {
+            if (str[i] == ch)
+            {
+                k++;
+            }
+        }
+        return k;
+    }
+
+
+
+   
 }
